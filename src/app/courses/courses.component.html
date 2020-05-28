@@ -12,7 +12,6 @@
             (click)="selectCourse(course)">
             <h3 matLine>{{course.title}}</h3>
             <p matLine>{{course.description}}</p>
-            <p matLine>{{course.description}}</p>
             <button mat-icon-button color="warn"
               (click)="deleteCourse(course.id);$event.stopImmediatePropagation()">
               <mat-icon>delete</mat-icon>
