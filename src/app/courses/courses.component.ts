@@ -44,17 +44,24 @@ export class CoursesComponent implements OnInit {
       .subscribe(courses => this.courses = courses);
   }
 
+  refreshCourses() {
+    this.resetSelectedCourse();
+    this.loadCourses();
+  }
+
   saveCourse(course) {
     if(course.id) {
-      this.coursesService.update(course);
+      this.coursesService.update(course)
+        .subscribe(result => this.refreshCourses());
     } else {
       this.coursesService.create(course)
-        .subscribe(result => this.loadCourses());
+        .subscribe(result => this.refreshCourses());
     }
   }
 
   deleteCourse(courseId) {
-    this.coursesService.delete(courseId);
+    this.coursesService.delete(courseId)
+      .subscribe(result => this.refreshCourses());
   }
 
   cancel() {
