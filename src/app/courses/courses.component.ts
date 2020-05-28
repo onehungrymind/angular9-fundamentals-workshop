@@ -8,8 +8,9 @@ import { CoursesService } from '../shared/services/courses.service';
 })
 export class CoursesComponent implements OnInit {
   // CHALLENGE
-  // STEP 01: Update the form to show percentComplete
-  // STEP 02: Updaet the form to show favorite
+  // STEP 01: Complete remote update call
+  // STEP 02: Complete remote delete call
+  // STEP 03: Fix UI on completed operation
 
   selectedCourse = null;
 
