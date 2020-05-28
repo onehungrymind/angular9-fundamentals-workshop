@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
   // CHALLENGE
-  // STEP 01: Display courses using ngFor
-  // STEP 02: Add event handler to select course
-  // STEP 03: Display raw json of selected course
+  // STEP 01: Update the form to show percentComplete
+  // STEP 02: Updaet the form to show favorite
+
   selectedCourse = null;
 
   courses = [
