@@ -10,6 +10,7 @@ export class CoursesComponent implements OnInit {
   // STEP 01: Display courses using ngFor
   // STEP 02: Add event handler to select course
   // STEP 03: Display raw json of selected course
+  selectedCourse = null;
 
   courses = [
     {
@@ -33,4 +34,11 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectCourse(course) {
+    this.selectedCourse = course;
+  }
+
+  deleteCourse(courseId) {
+    console.log('COURSE DELETED!', courseId);
+  }
 }
