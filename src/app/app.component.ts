@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular9-fundamentals-workshop';
+  title = 'Angular 9 Fundamentals';
+  links = [
+    { path: '/home', icon: 'home', title: 'Home' },
+    { path: '/courses', icon: 'view_list', title: 'Courses' },
+  ];
+
+  constructor() {}
 }
