@@ -11,14 +11,22 @@
     </span>
   </span>
   <span class="spacer"></span>
-  <button class="login" mat-mini-fab>
+  <button class="login" mat-mini-fab (click)="logout()">
     <mat-icon>person</mat-icon>
   </button>
   </mat-toolbar>
 
   <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" opened class="app-sidenav">
-    <!-- Sidenav Menu -->
+    <nav>
+      <a mat-button class="nav-link"
+        *ngFor="let link of links"
+        [routerLink]="link.path"
+        routerLinkActive="active">
+        <mat-icon>{{link.icon}}</mat-icon>
+        {{link.title}}
+      </a>
+    </nav>
   </mat-sidenav>
 
   <div class="container">
