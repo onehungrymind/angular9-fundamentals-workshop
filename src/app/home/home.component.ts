@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   title = 'Hello World';
   currentLesson = null;
+  
   courseLessons = [
     { title: 'Hello Angular' },
     { title: 'Component Fundamentals' },
