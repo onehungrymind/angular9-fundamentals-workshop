@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { shareReplay } from 'rxjs/operators';
+
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +14,7 @@ export class AppComponent {
     { path: '/home', icon: 'home', title: 'Home' },
     { path: '/courses', icon: 'view_list', title: 'Courses' },
   ];
+
 
   constructor() {}
 }

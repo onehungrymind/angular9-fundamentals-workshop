@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CoursesService } from '../shared/services/courses.service';
 import { CoursesComponent } from './courses.component';
 
 describe('CoursesComponent', () => {
