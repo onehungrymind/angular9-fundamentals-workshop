@@ -17,8 +17,8 @@ export class CoursesComponent implements OnInit {
     },
     {
       id: 2,
-      title: 'Javascript Fundamentals',
-      description: 'Learn the fundamentals of Javascript',
+      title: 'Vue Fundamentals',
+      description: 'Learn the fundamentals of Vue',
       percentComplete: 75,
       favorite: false
     },
@@ -34,6 +34,19 @@ export class CoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.resetSelectedCourse();
+  }
+
+  resetSelectedCourse() {
+    const emptyCourse = {
+      id: null,
+      title: '',
+      description: '',
+      percentComplete: 0,
+      favorite: false
+    }
+
+    this.selectedCourse = emptyCourse;
   }
 
   selectCourse(course) {
@@ -41,6 +54,10 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(courseId) {
-    
+    console.log('Delet')
+  }
+
+  cancel() {
+    this.resetSelectedCourse();
   }
 }
