@@ -19,7 +19,7 @@ export class CoursesComponent implements OnInit {
       id: 2,
       title: 'Vue Fundamentals',
       description: 'Learn the fundamentals of Vue',
-      percentComplete: 75,
+      percentComplete: 0,
       favorite: false
     },
     {
@@ -53,8 +53,12 @@ export class CoursesComponent implements OnInit {
     this.selectedCourse = course;
   }
 
+  saveCourse() {
+    console.log('SAVE COURSE!');
+  }
+
   deleteCourse(courseId) {
-    console.log('Delet')
+    console.log('COURSE DELETED!', courseId);
   }
 
   cancel() {
