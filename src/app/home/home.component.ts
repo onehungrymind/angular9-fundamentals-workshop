@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  title = 'Hello World';
+  currentLesson = null;
+  
   courseLessons = [
     { title: 'Hello Angular' },
     { title: 'Component Fundamentals' },
@@ -23,4 +25,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectLesson(lesson) {
+    this.currentLesson = lesson;
+  }
 }
