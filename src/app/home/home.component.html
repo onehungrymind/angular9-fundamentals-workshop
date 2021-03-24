@@ -1,12 +1,32 @@
 <mat-card>
     <mat-card-header>
       <mat-card-title>
-        Course Outline
+        {{welcome}}
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
 
       <!-- LESSON LIST -->
-      
+      <!-- <pre>{{courseLessons | json}}</pre> -->
+      <!-- <span [style.color] = "themeColor">{{courseLessons | json}}</span>
+      <input name="themeColor" type="text" [(ngModel)] = "welcome"/>
+      <button mat-button (click) = "updateColor()">Update</button> -->
+
+        <mat-list>
+          <mat-list-item *ngFor = "let lessons of courseLessons" (click) = "selectLesson(lessons)">
+              <h3>{{lessons.title}}</h3>
+          </mat-list-item>
+        </mat-list>
+
     </mat-card-content>
   </mat-card>
+
+
+  <mat-card>
+    <mat-card-content>
+      <span>Selected Lessons</span>
+      <div *ngIf = "currentLesson">{{currentLesson | json}}</div>
+      <ng-template #elseblock>Select a Lesson</ng-template>
+    </mat-card-content>
+  </mat-card>
+  

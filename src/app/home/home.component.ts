@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  themeColor = 'red'
+  welcome = "hey there, welcome to angular."
+
+  currentLesson = null;
+
   courseLessons = [
     { title: 'Hello Angular' },
     { title: 'Component Fundamentals' },
@@ -21,6 +26,20 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.welcome = 'this is gone now.'
+    }, 4000)
+
+
+  }
+  
+  updateColor() {
+    this.themeColor = 'green'
+  }
+
+  selectLesson(lesson){
+    console.log('selectLesson() ', lesson)
+    this.currentLesson = lesson
   }
 
 }
