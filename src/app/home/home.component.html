@@ -1,12 +1,27 @@
 <mat-card>
     <mat-card-header>
       <mat-card-title>
-        Course Outline
+        {{title}}
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
 
       <!-- LESSON LIST -->
-      
+      <mat-list>
+        <mat-list-item *ngFor="let lessons of courseLessons" (click) = "selectLesson(lessons)">
+            {{lessons.title}}
+        </mat-list-item>
+      </mat-list>
+        
+    </mat-card-content>
+  </mat-card>
+  
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>DEBUG</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <span *ngIf="currentLesson; else elseBlock" >{{currentLesson | json}}</span>
+      <ng-template #elseBlock>Select a Lesson</ng-template>
     </mat-card-content>
   </mat-card>
