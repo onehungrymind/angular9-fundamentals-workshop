@@ -32,14 +32,14 @@ export class CoursesService {
   }
 
   create(course) {
-    console.log("Create Course", course)
+    console.log("Created Course", course)
   }
 
   update(course) {
-    console.log("Update Course", course)
+    console.log("Updated Course", course)
   }
 
   delete(courseId) {
-    console.log("Delete Course", courseId)
+    console.log("Deleted Course", courseId)
   }
 }
