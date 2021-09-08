@@ -31,14 +31,14 @@
             <!-- COURSE FORM -->
             <mat-card-header>
                 <mat-card-title>
-                    <span *ngIf="currentCourse; else noSelection">
+                    <span *ngIf="currentCourse.id; else noSelection">
                         {{currentCourse.title}}
                     </span>
                     <ng-template #noSelection>Select Course</ng-template>
                 </mat-card-title>
             </mat-card-header>
 
-            <form #formName = "ngForm" (submit)="saveCourse()">
+            <form #formName = "ngForm" (submit)="saveCourse(currentCourse)">
                 <mat-card-content>
                     <mat-form-field>
                         <input 

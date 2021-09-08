@@ -10,7 +10,6 @@ export class HomeComponent implements OnInit {
   title = "Hello Workshop !"
   currentLesson = null
   updateColor(){
-    console.log(23)
     this.themeColor = "red"
   }
   courseLessons = [
