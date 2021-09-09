@@ -1,45 +1,36 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+const BASE_URL = "http://localhost:3000/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  private courses = [
-    {
-      id: 1,
-      title: 'Angular 9 Fundamentals',
-      description: 'Learn the fundamentals of Angular 9',
-      percentComplete: 26,
-      favorite: true
-    },
-    {
-      id: 2,
-      title: 'Some Other Stuff',
-      description: 'Im gonna be successful oneday',
-      percentComplete: 85,
-      favorite: false
-    }
-  ];
-
-  constructor() { }
+  private model = "courses"
+  constructor(private http: HttpClient) { }
 
   all() {
-    return this.courses
+    return this.http.get(this.getUrl())
   }
 
   find(courseId) {
-
+    return this.http.get(`${this.getUrl()}/${courseId}`)
   }
 
   create(course) {
-    console.log("Created Course", course)
+    return this.http.post(this.getUrl(), course)
   }
 
   update(course) {
-    console.log("Updated Course", course)
+    return this.http.put(`${this.getUrl()}/${course.id}`, course)
   }
 
   delete(courseId) {
-    console.log("Deleted Course", courseId)
+    return this.http.delete(`${this.getUrl()}/${courseId}`)
+  }
+
+  private getUrl() {
+    return `${BASE_URL}${this.model}`
   }
 }
