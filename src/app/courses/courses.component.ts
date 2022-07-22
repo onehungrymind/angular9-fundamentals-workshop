@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-courses',
@@ -6,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  // CHALLENGE
-  // STEP 01: Display courses using ngFor
-  // STEP 02: Add event handler to select course
-  // STEP 03: Display raw json of selected course
-  selectedCourse = null;
+  currentCourse = null;
+  title = 'Hello asdasdsa';
 
   courses = [
     {
@@ -32,13 +30,46 @@ export class CoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.resetSelectedCourse();
   }
 
-  selectCourse(course) {
-    this.selectedCourse = course;
+  resetSelectedCourse() {
+    const emptyCourse = {
+      id: null,
+      title: '',
+      description: '',
+      percentComplete: 0,
+      favorite: false,
+    }
+
+    this.currentCourse = emptyCourse
+
+  }
+
+  addIdToCourse() {
+    // this.currentCourse.id = this.courses.length + 1
+  }
+
+  selectedCourse(course) {
+    this.currentCourse = course
+    console.log('Current Course is', course)
   }
 
   deleteCourse(courseId) {
-    console.log('COURSE DELETED!', courseId);
+    console.log(courseId);
+  }
+
+  cancel() {
+    this.resetSelectedCourse()
+  }
+
+  saveCourse() {
+    this.courses.push(this.currentCourse)
+    console.log(this.courses)
+  }
+
+  setFavoriteStatus() {
+    this.currentCourse.favorite === false ? this.currentCourse.favorite = true : this.currentCourse.favorite = false;
+    this.currentCourse.favorite === true ? this.currentCourse.favorite = false : this.currentCourse.favorite = true;
   }
 }
